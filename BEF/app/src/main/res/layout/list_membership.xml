@@ -1,0 +1,31 @@
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="*">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorMyDark2"
+        android:padding="1dp">
+
+        <TextView
+            android:id="@+id/tv_id"
+            style="@style/DbTvProperty"
+            android:layout_weight="1"
+            android:text="@string/id"/>
+
+        <TextView
+            android:id="@+id/tv_email"
+            style="@style/DbTvProperty"
+            android:layout_weight="6"
+            android:text="@string/email"/>
+
+        <TextView
+            android:id="@+id/tv_password"
+            style="@style/DbTvProperty"
+            android:layout_weight="3"
+            android:text="@string/pw"/>
+    </TableRow>
+</TableLayout>

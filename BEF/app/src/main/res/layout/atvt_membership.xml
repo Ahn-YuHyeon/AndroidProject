@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/main_background"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="170dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/et_email"
+            style="@style/MemberEtProperty"
+            android:ellipsize="end"
+            android:hint="@string/email"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:maxLength="30"/>
+
+        <EditText
+            android:id="@+id/et_pw"
+            style="@style/MemberEtProperty"
+            android:hint="@string/pw"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:maxLength="8"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/et_name"
+            style="@style/MemberEtProperty"
+            android:ellipsize="end"
+            android:hint="@string/name"
+            android:imeOptions="actionNext"
+            android:inputType="textPersonName"/>
+
+        <EditText
+            android:id="@+id/et_birth"
+            style="@style/MemberEtProperty"
+            android:hint="@string/birth"
+            android:imeOptions="actionNext"
+            android:inputType="date"/>
+
+        <EditText
+            android:id="@+id/et_city"
+            style="@style/MemberEtProperty"
+            android:ellipsize="end"
+            android:hint="@string/city"
+            android:imeOptions="actionNext"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/et_job"
+            style="@style/MemberEtProperty"
+            android:ellipsize="end"
+            android:hint="@string/job"
+            android:imeOptions="actionDone"
+            android:inputType="text"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/cb_male"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/male"/>
+
+            <CheckBox
+                android:id="@+id/cb_female"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/female"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:onClick="onClick"
+        android:text="@string/save"
+        android:textSize="14sp"/>
+</LinearLayout>

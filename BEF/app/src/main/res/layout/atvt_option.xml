@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_marginTop="20dp"
+              android:background="@drawable/main_background"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        style="@style/OptionRlProperty">
+
+        <Button
+            android:id="@+id/btn_time1"
+            style="@style/OptionBtn1Property"/>
+
+        <Button
+            android:id="@+id/btn_guide1"
+            style="@style/OptionBtn2Property"
+            android:layout_toRightOf="@+id/btn_time1"/>
+
+        <Button
+            android:id="@+id/btn_run1"
+            style="@style/OptionBtn3Property"
+            android:layout_toRightOf="@+id/btn_guide1"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/OptionRlProperty">
+
+        <Button
+            android:id="@+id/btn_time2"
+            style="@style/OptionBtn1Property"/>
+
+        <Button
+            android:id="@+id/btn_guide2"
+            style="@style/OptionBtn2Property"
+            android:layout_toRightOf="@+id/btn_time2"/>
+
+        <Button
+            android:id="@+id/btn_run2"
+            style="@style/OptionBtn3Property"
+            android:layout_toRightOf="@+id/btn_guide2"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/OptionRlProperty">
+
+        <Button
+            android:id="@+id/btn_time3"
+            style="@style/OptionBtn1Property"/>
+
+        <Button
+            android:id="@+id/btn_guide3"
+            style="@style/OptionBtn2Property"
+            android:layout_toRightOf="@+id/btn_time3"/>
+
+        <Button
+            android:id="@+id/btn_run3"
+            style="@style/OptionBtn3Property"
+            android:layout_toRightOf="@+id/btn_guide3"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/OptionRlProperty">
+
+        <Button
+            android:id="@+id/btn_time4"
+            style="@style/OptionBtn1Property"/>
+
+        <Button
+            android:id="@+id/btn_guide4"
+            style="@style/OptionBtn2Property"
+            android:layout_toRightOf="@+id/btn_time4"/>
+
+        <Button
+            android:id="@+id/btn_run4"
+            style="@style/OptionBtn3Property"
+            android:layout_toRightOf="@+id/btn_guide4"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/OptionRlProperty">
+
+        <Button
+            android:id="@+id/btn_time5"
+            style="@style/OptionBtn1Property"/>
+
+        <Button
+            android:id="@+id/btn_guide5"
+            style="@style/OptionBtn2Property"
+            android:layout_toRightOf="@+id/btn_time5"/>
+
+        <Button
+            android:id="@+id/btn_run5"
+            style="@style/OptionBtn3Property"
+            android:layout_toRightOf="@+id/btn_guide5"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/OptionRlProperty">
+
+        <Button
+            android:id="@+id/btn_time6"
+            style="@style/OptionBtn1Property"/>
+
+        <Button
+            android:id="@+id/btn_guide6"
+            style="@style/OptionBtn2Property"
+            android:layout_toRightOf="@+id/btn_time6"/>
+
+        <Button
+            android:id="@+id/btn_run6"
+            style="@style/OptionBtn3Property"
+            android:layout_toRightOf="@+id/btn_guide6"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/OptionRlProperty">
+
+        <Button
+            android:id="@+id/btn_time7"
+            style="@style/OptionBtn1Property"/>
+
+        <Button
+            android:id="@+id/btn_guide7"
+            style="@style/OptionBtn2Property"
+            android:layout_toRightOf="@+id/btn_time7"/>
+
+        <Button
+            android:id="@+id/btn_run7"
+            style="@style/OptionBtn3Property"
+            android:layout_toRightOf="@+id/btn_guide7"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/OptionRlProperty">
+
+        <Button
+            android:id="@+id/btn_time8"
+            style="@style/OptionBtn1Property"/>
+
+        <Button
+            android:id="@+id/btn_guide8"
+            style="@style/OptionBtn2Property"
+            android:layout_toRightOf="@+id/btn_time8"/>
+
+        <Button
+            android:id="@+id/btn_run8"
+            style="@style/OptionBtn3Property"
+            android:layout_toRightOf="@+id/btn_guide8"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/OptionRlProperty">
+
+        <Button
+            android:id="@+id/btn_time9"
+            style="@style/OptionBtn1Property"/>
+
+        <Button
+            android:id="@+id/btn_guide9"
+            style="@style/OptionBtn2Property"
+            android:layout_toRightOf="@+id/btn_time9"/>
+
+        <Button
+            android:id="@+id/btn_run9"
+            style="@style/OptionBtn3Property"
+            android:layout_toRightOf="@+id/btn_guide9"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_save"
+        style="@style/OptionBtn4Property"
+        android:text="@string/save"/>
+</LinearLayout>

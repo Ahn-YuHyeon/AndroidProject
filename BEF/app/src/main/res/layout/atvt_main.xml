@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/main_background"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_login"
+        style="@style/MainBtnProperty"
+        android:text="@string/login"/>
+
+    <Button
+        android:id="@+id/btn_play"
+        style="@style/MainBtnProperty"
+        android:layout_toRightOf="@id/btn_login"
+        android:text="@string/play"/>
+
+    <Button
+        android:id="@+id/btn_option"
+        style="@style/MainBtnProperty"
+        android:layout_toRightOf="@id/btn_play"
+        android:text="@string/option"/>
+</RelativeLayout>
