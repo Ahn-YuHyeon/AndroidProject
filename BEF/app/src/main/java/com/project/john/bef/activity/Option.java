@@ -1,9 +1,11 @@
 package com.project.john.bef.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.project.john.bef.Main;
 import com.project.john.bef.R;
 import com.project.john.bef.component.Constant;
 import com.project.john.bef.enumeration.LogType;
@@ -81,6 +83,9 @@ public class Option extends AppCompatActivity {
                                                 ", " +
                                                 _OptionItem.mRunVoice);
             }
+            Intent intent = new Intent(this, Main.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
         } else {
             for (int i = 0; i < Constant.BUTTON_CNT; i++) {
                 if (v.getId( ) == sBtnTimeIds[i]) {

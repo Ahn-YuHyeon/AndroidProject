@@ -109,7 +109,6 @@ public class Main extends AppCompatActivity implements TextToSpeech.OnInitListen
     @Override
     public void onBackPressed( ) {
         if (mExitModeTime != 0 && SystemClock.uptimeMillis( ) - mExitModeTime < 3000) {
-            finish( );
             super.onBackPressed( );
         } else {
             Toast.makeText(this, Constant.FINISHED_APP_MSG, Toast.LENGTH_LONG).show( );

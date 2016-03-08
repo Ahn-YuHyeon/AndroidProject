@@ -61,8 +61,9 @@ public class Membership extends AppCompatActivity {
                     Logger.record(LogType.VERBOSE, e.toString( ), e.getCause( ));
                     break;
                 }
-                Intent intent1 = new Intent(this, Login.class);
-                startActivity(intent1);
+                Intent intent = new Intent(this, Login.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
                 break;
         }
     }

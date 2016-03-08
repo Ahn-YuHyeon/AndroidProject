@@ -47,6 +47,7 @@ public class Login extends AppCompatActivity {
                 try {
                     mLoginHelper.checkPw(mEtPw.getText( ).toString( ).trim( ));
                     Intent intent1 = new Intent(this, Main.class);
+                    intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent1);
                 } catch (InputException e) {
                     Toast.makeText(this, Constant.PW_ERROR_MSG, Toast.LENGTH_LONG).show( );

@@ -57,13 +57,15 @@ public class AlarmRegister {
 
     public void releaseAlarm(Context context) {
         AlarmManager alarmMngr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent( );
+        Intent intent = new Intent();
 
-        int i = 0;
-        for (OptionItem opItem : Option.sOpItems) {
-            PendingIntent pIntent = PendingIntent.getActivity(context, i, intent, 0);
-            alarmMngr.cancel(pIntent);
-            i++;
+        if (Option.sOpItems != null) {
+            int i = 0;
+            for (OptionItem opItem : Option.sOpItems) {
+                PendingIntent pIntent = PendingIntent.getActivity(context, i, intent, 0);
+                alarmMngr.cancel(pIntent);
+                i++;
+            }
         }
     }
 }

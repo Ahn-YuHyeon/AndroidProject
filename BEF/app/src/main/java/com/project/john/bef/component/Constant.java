@@ -27,7 +27,7 @@ public class Constant {
      * INFORMATION
      */
     public static final String FINISHED_APP_MSG =
-            "If you want to finish app, please press back key again";
+            "If you want to finish app, please press back key again.";
     public static final String OPENED_DB_MSG = "It succeeded to open the database.";
     public static final String CLOSED_DB_MSG = "It succeeded to close the database.";
     public static final String JOINED_MB_MSG = " succeeded to become a member.";
