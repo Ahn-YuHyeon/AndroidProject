@@ -2,6 +2,8 @@ package com.project.john.bef.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
+import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -22,6 +24,9 @@ public class Option extends AppCompatActivity {
     static int[] sBtnTimeIds = new int[Constant.BUTTON_CNT];
     static int[] sBtnGuideIds = new int[Constant.BUTTON_CNT];
     static int[] sBtnRunIds = new int[Constant.BUTTON_CNT];
+    static int[] sBtnTestIds = new int[Constant.BUTTON_CNT];
+    private ArrayList<String> mResults;
+    static int sIndex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +76,16 @@ public class Option extends AppCompatActivity {
         sBtnRunIds[6] = R.id.btn_run7;
         sBtnRunIds[7] = R.id.btn_run8;
         sBtnRunIds[8] = R.id.btn_run9;
+
+        sBtnTestIds[0] = R.id.btn_test1;
+        sBtnTestIds[1] = R.id.btn_test2;
+        sBtnTestIds[2] = R.id.btn_test3;
+        sBtnTestIds[3] = R.id.btn_test4;
+        sBtnTestIds[4] = R.id.btn_test5;
+        sBtnTestIds[5] = R.id.btn_test6;
+        sBtnTestIds[6] = R.id.btn_test7;
+        sBtnTestIds[7] = R.id.btn_test8;
+        sBtnTestIds[8] = R.id.btn_test9;
     }
 
     public void onClick(View v) {
@@ -89,17 +104,24 @@ public class Option extends AppCompatActivity {
             startActivity(intent);
         } else {
             for (int i = 0; i < Constant.BUTTON_CNT; i++) {
-                if (v.getId( ) == sBtnTimeIds[i]) {
-                    mOpDialog.showTimePicker(sOpItems.get(i));
-                } else
-                    if (v.getId( ) == sBtnGuideIds[i]) {
-                        mOpDialog.showTextDialog(sOpItems.get(i), Constant.INPUT_GUIDE_MSG,
-                                                 OptionType.GUIDE_VOICE);
-                    } else
-                        if (v.getId( ) == sBtnRunIds[i]) {
-                            mOpDialog.showTextDialog(sOpItems.get(i), Constant.INPUT_RUN_MSG,
-                                                     OptionType.RUN_VOICE);
+                if (v.getId( ) == sBtnTestIds[i]) {
+                    sIndex = i;
+                    testOkgoogle();
+                } else {
+                    if (v.getId( ) == sBtnTimeIds[i]) {
+                        mOpDialog.showTimePicker(sOpItems.get(i));
+                    } else {
+                        if (v.getId( ) == sBtnGuideIds[i]) {
+                            mOpDialog.showTextDialog(sOpItems.get(i), Constant.INPUT_GUIDE_MSG,
+                                                     OptionType.GUIDE_VOICE);
+                        } else {
+                            if (v.getId( ) == sBtnRunIds[i]) {
+                                mOpDialog.showTextDialog(sOpItems.get(i), Constant.INPUT_RUN_MSG,
+                                                         OptionType.RUN_VOICE);
+                            }
                         }
+                    }
+                }
             }
         }
     }
@@ -107,5 +129,52 @@ public class Option extends AppCompatActivity {
     @Override
     public void onConfigurationChanged(android.content.res.Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
+    }
+
+    public void testOkgoogle() {
+        Main.sTtsHelper.startSpeak(Option.sOpItems.get(sIndex).getGuideVoice( ));
+        SystemClock.sleep(3000);
+        recognizeVoice();
+    }
+
+    public void recognizeVoice() {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, getPackageName( ));
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "ko-KR");
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, Constant.INPUT_VOICE_MSG);
+        startActivityForResult(intent, Constant.GOOGLE_STT);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK && (requestCode == Constant.GOOGLE_STT)) {
+            checkRecogVoice(requestCode, data);
+        }
+    }
+
+    private void checkRecogVoice(int requestCode, Intent data) {
+        String key = "";
+        if (requestCode == Constant.GOOGLE_STT) key = RecognizerIntent.EXTRA_RESULTS;
+
+        mResults = data.getStringArrayListExtra(key);
+        String[] result = new String[mResults.size( )];
+        mResults.toArray(result);
+
+        for (String str : mResults) {
+            if (Constant.POSITIVE_RESPONSE.equals(str)) {
+                Logger.record(LogType.VERBOSE, "11");
+                Main.sTtsHelper.startSpeak("오케이구글");
+                SystemClock.sleep(3000);
+                Main.sTtsHelper.startSpeak(Option.sOpItems.get(sIndex).getRunVoice( ));
+                break;
+            } else
+                if (Constant.NEGATIVE_RESPONSE.equals(str)) {
+                    Logger.record(LogType.VERBOSE, "22");
+                    break;
+                } else {
+                    Logger.record(LogType.VERBOSE, "33");
+                    recognizeVoice( );
+                }
+        }
     }
 }

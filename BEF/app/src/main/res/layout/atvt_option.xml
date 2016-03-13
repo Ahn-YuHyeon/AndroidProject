@@ -22,6 +22,12 @@
             android:id="@+id/btn_run1"
             style="@style/OptionBtn3Property"
             android:layout_toRightOf="@+id/btn_guide1"/>
+
+        <Button
+            android:id="@+id/btn_test1"
+            style="@style/OptionBtn5Property"
+            android:layout_toRightOf="@+id/btn_run1"/>
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -40,6 +46,11 @@
             android:id="@+id/btn_run2"
             style="@style/OptionBtn3Property"
             android:layout_toRightOf="@+id/btn_guide2"/>
+
+        <Button
+            android:id="@+id/btn_test2"
+            style="@style/OptionBtn5Property"
+            android:layout_toRightOf="@+id/btn_run2"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -58,6 +69,11 @@
             android:id="@+id/btn_run3"
             style="@style/OptionBtn3Property"
             android:layout_toRightOf="@+id/btn_guide3"/>
+
+        <Button
+            android:id="@+id/btn_test3"
+            style="@style/OptionBtn5Property"
+            android:layout_toRightOf="@+id/btn_run3"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -76,6 +92,11 @@
             android:id="@+id/btn_run4"
             style="@style/OptionBtn3Property"
             android:layout_toRightOf="@+id/btn_guide4"/>
+
+        <Button
+            android:id="@+id/btn_test4"
+            style="@style/OptionBtn5Property"
+            android:layout_toRightOf="@+id/btn_run4"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -94,6 +115,11 @@
             android:id="@+id/btn_run5"
             style="@style/OptionBtn3Property"
             android:layout_toRightOf="@+id/btn_guide5"/>
+
+        <Button
+            android:id="@+id/btn_test5"
+            style="@style/OptionBtn5Property"
+            android:layout_toRightOf="@+id/btn_run5"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -112,6 +138,11 @@
             android:id="@+id/btn_run6"
             style="@style/OptionBtn3Property"
             android:layout_toRightOf="@+id/btn_guide6"/>
+
+        <Button
+            android:id="@+id/btn_test6"
+            style="@style/OptionBtn5Property"
+            android:layout_toRightOf="@+id/btn_run6"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -130,6 +161,11 @@
             android:id="@+id/btn_run7"
             style="@style/OptionBtn3Property"
             android:layout_toRightOf="@+id/btn_guide7"/>
+
+        <Button
+            android:id="@+id/btn_test7"
+            style="@style/OptionBtn5Property"
+            android:layout_toRightOf="@+id/btn_run7"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -148,6 +184,11 @@
             android:id="@+id/btn_run8"
             style="@style/OptionBtn3Property"
             android:layout_toRightOf="@+id/btn_guide8"/>
+
+        <Button
+            android:id="@+id/btn_test8"
+            style="@style/OptionBtn5Property"
+            android:layout_toRightOf="@+id/btn_run8"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -166,6 +207,10 @@
             android:id="@+id/btn_run9"
             style="@style/OptionBtn3Property"
             android:layout_toRightOf="@+id/btn_guide9"/>
+        <Button
+            android:id="@+id/btn_test9"
+            style="@style/OptionBtn5Property"
+            android:layout_toRightOf="@+id/btn_run9"/>
     </RelativeLayout>
 
     <Button

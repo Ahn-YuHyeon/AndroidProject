@@ -7,6 +7,7 @@
     <string name="operate_time">동작 시간</string>
     <string name="guide_voice">안내 음성</string>
     <string name="run_voice">실행 음성</string>
+    <string name="test">테스트</string>
     <string name="id">아이디</string>
     <string name="email">이메일</string>
     <string name="pw">비밀번호</string>

@@ -141,6 +141,7 @@ public class Main extends AppCompatActivity implements TextToSpeech.OnInitListen
         intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, getPackageName( ));
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "ko-KR");
         intent.putExtra(RecognizerIntent.EXTRA_PROMPT, Constant.INPUT_VOICE_MSG);
+
         startActivityForResult(intent, Constant.GOOGLE_STT);
     }
 

@@ -68,13 +68,18 @@
     </style>
 
     <style name="OptionBtn2Property" parent="OptionBtn1Property">
-        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_width">100dp</item>
         <item name="android:text">@string/guide_voice</item>
     </style>
 
     <style name="OptionBtn3Property" parent="OptionBtn1Property">
-        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_width">100dp</item>
         <item name="android:text">@string/run_voice</item>
+    </style>
+
+    <style name="OptionBtn5Property" parent="OptionBtn1Property">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:text">@string/test</item>
     </style>
 
     <style name="OptionRlProperty">
