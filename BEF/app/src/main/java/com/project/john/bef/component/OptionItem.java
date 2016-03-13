@@ -1,17 +1,19 @@
 package com.project.john.bef.component;
 
-public class OptionItem {
+import java.io.Serializable;
+
+public class OptionItem implements Serializable {
     public int mOprHour = 0;
     public int mOprMinute = 0;
     public String mGuideVoice = "";
     public String mRunVoice = "";
 
-    public OptionItem(int oprHour, int oprMinute, String guideVoice, String runVoice) {
-        this.setOprHour(oprHour);
-        this.setOprMinute(oprMinute);
-        this.setGuideVoice(guideVoice);
-        this.setRunVoice(runVoice);
-    }
+    //public OptionItem(int oprHour, int oprMinute, String guideVoice, String runVoice) {
+    //    this.setOprHour(oprHour);
+    //    this.setOprMinute(oprMinute);
+    //    this.setGuideVoice(guideVoice);
+    //    this.setRunVoice(runVoice);
+    //}
 
     public int getOprHour( ) {
         return mOprHour;

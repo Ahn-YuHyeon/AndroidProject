@@ -78,13 +78,14 @@ public class Option extends AppCompatActivity {
             int i = 0;
             for (OptionItem _OptionItem : sOpItems) {
                 Logger.record(LogType.VERBOSE, ++i + "> " + _OptionItem.mOprHour + ":" +
-                                                _OptionItem.mOprMinute + ", " +
-                                                _OptionItem.mGuideVoice +
-                                                ", " +
-                                                _OptionItem.mRunVoice);
+                                               _OptionItem.mOprMinute + ", " +
+                                               _OptionItem.mGuideVoice +
+                                               ", " +
+                                               _OptionItem.mRunVoice);
             }
             Intent intent = new Intent(this, Main.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP |
+                            Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
         } else {
             for (int i = 0; i < Constant.BUTTON_CNT; i++) {
@@ -93,12 +94,11 @@ public class Option extends AppCompatActivity {
                 } else
                     if (v.getId( ) == sBtnGuideIds[i]) {
                         mOpDialog.showTextDialog(sOpItems.get(i), Constant.INPUT_GUIDE_MSG,
-                                                    OptionType.GUIDE_VOICE);
+                                                 OptionType.GUIDE_VOICE);
                     } else
                         if (v.getId( ) == sBtnRunIds[i]) {
-                            mOpDialog
-                                    .showTextDialog(sOpItems.get(i), Constant.INPUT_RUN_MSG,
-                                                    OptionType.RUN_VOICE);
+                            mOpDialog.showTextDialog(sOpItems.get(i), Constant.INPUT_RUN_MSG,
+                                                     OptionType.RUN_VOICE);
                         }
             }
         }

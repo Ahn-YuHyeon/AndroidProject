@@ -38,14 +38,14 @@ public class AlarmRegister {
 
             if (weakUpTimeH[i] > 0 && weakUpTimeM[i] > 0) {
                 if (((hour * 60) + minute) > ((weakUpTimeH[i] * 60) + weakUpTimeM[i])) {
-                    intent.putExtra("index", i);
-                    pIntent = PendingIntent.getBroadcast(context, i, intent, 0);
+                    intent.putExtra("data", opItem);
+                    pIntent = PendingIntent.getBroadcast(context, i, intent, PendingIntent.FLAG_UPDATE_CURRENT);
                     calendar.set(year, month, day + 1, weakUpTimeH[i], weakUpTimeM[i]);
                     alarmMngr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis( ),
                                            24 * 60 * 60 * 1000, pIntent);
                 } else {
-                    intent.putExtra("index", i);
-                    pIntent = PendingIntent.getBroadcast(context, i, intent, 0);
+                    intent.putExtra("data", opItem);
+                    pIntent = PendingIntent.getBroadcast(context, i, intent, PendingIntent.FLAG_UPDATE_CURRENT);
                     calendar.set(year, month, day, weakUpTimeH[i], weakUpTimeM[i]);
                     alarmMngr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis( ),
                                            24 * 60 * 60 * 1000, pIntent);

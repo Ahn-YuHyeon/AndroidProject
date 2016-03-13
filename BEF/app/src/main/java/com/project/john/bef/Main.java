@@ -14,12 +14,13 @@ import android.widget.Toast;
 import com.project.john.bef.activity.Login;
 import com.project.john.bef.activity.Option;
 import com.project.john.bef.component.Constant;
+import com.project.john.bef.component.OptionItem;
 import com.project.john.bef.enumeration.LogType;
 import com.project.john.bef.manager.AlarmReceiver;
 import com.project.john.bef.manager.AlarmRegister;
 import com.project.john.bef.manager.DbHelper;
-import com.project.john.bef.manager.TtsHelper;
 import com.project.john.bef.manager.Logger;
+import com.project.john.bef.manager.TtsHelper;
 
 import java.util.ArrayList;
 
@@ -39,7 +40,8 @@ public class Main extends AppCompatActivity implements TextToSpeech.OnInitListen
     public static DbHelper sDbHelper;
     public static TtsHelper sTtsHelper;
     public static TextToSpeech sTts;
-    public static int sIndex;
+
+    OptionItem mOpItem;
     public static boolean sFlag = false;
 
     private long mExitModeTime = 0L;
@@ -63,11 +65,12 @@ public class Main extends AppCompatActivity implements TextToSpeech.OnInitListen
         mAlarmRegister = new AlarmRegister( );
         mAlarmReceiver = new AlarmReceiver( );
         mAlarmReceiver.setOnAlarmListener(new AlarmReceiver.OnAlarmListener( ) {
-            public void onAlarm(int index) {
-                sIndex = index;
-                sTtsHelper.startSpeak(Option.sOpItems.get(index).mGuideVoice);
+            public void onAlarm(OptionItem opItem) {
+                mOpItem = opItem;
                 Logger.record(LogType.VERBOSE,
-                              Constant.SUCCESSED_ALARM_MSG + "(" + index + 1 + ")");
+                              Constant.SUCCESSED_ALARM_MSG + "(" + mOpItem.getOprHour( ) + ":" +
+                              mOpItem.getOprMinute( ) + ")");
+                sTtsHelper.startSpeak(mOpItem.mGuideVoice);
                 SystemClock.sleep(3000);
                 recognizeVoice( );
             }
@@ -160,7 +163,7 @@ public class Main extends AppCompatActivity implements TextToSpeech.OnInitListen
             if (Constant.POSITIVE_RESPONSE.equals(str)) {
                 sTtsHelper.startSpeak("오케이구글");
                 SystemClock.sleep(3000);
-                sTtsHelper.startSpeak(Option.sOpItems.get(sIndex).mRunVoice);
+                sTtsHelper.startSpeak(mOpItem.mRunVoice);
                 break;
             } else
                 if (Constant.NEGATIVE_RESPONSE.equals(str)) {
