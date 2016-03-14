@@ -50,6 +50,7 @@ public class Main extends AppCompatActivity
     public static boolean sFlag = false;
 
     private long mExitModeTime = 0L;
+    private static long sShakeModeTime = 0L;
     private ArrayList<String> mResults;
 
     AlarmRegister mAlarmRegister;
@@ -63,7 +64,7 @@ public class Main extends AppCompatActivity
     private float mX, mY, mZ;
 
     private static final int sSHAKE_THRESHOLD = 800;
-        private static final int sDATA_X = SensorManager.DATA_X;
+    private static final int sDATA_X = SensorManager.DATA_X;
     private static final int sDATA_Y = SensorManager.DATA_Y;
     private static final int sDATA_Z = SensorManager.DATA_Z;
 
@@ -256,9 +257,15 @@ public class Main extends AppCompatActivity
                 mSpeed = Math.abs(mX + mY + mZ - mLastX - mLastY - mLastZ) / gabOfTime * 10000;
 
                 if (mSpeed > sSHAKE_THRESHOLD) {
-                    sTtsHelper.startSpeak("검색어를 말씀하세요!");
-                    SystemClock.sleep(3000);
-                    sTtsHelper.startSpeak("오케이구글");
+                    if ((sShakeModeTime == 0) ||
+                        (SystemClock.uptimeMillis( ) - sShakeModeTime > 3000)) {
+                        sTtsHelper.startSpeak("검색어를 말씀하세요!");
+                        SystemClock.sleep(3000);
+                        sTtsHelper.startSpeak("오케이구글");
+                        sShakeModeTime = SystemClock.uptimeMillis( );
+                    } else {
+                        Logger.record(LogType.VERBOSE, Constant.SHAKE_ERROR_MSG);
+                    }
                 }
                 mLastX = event.values[sDATA_X];
                 mLastY = event.values[sDATA_Y];

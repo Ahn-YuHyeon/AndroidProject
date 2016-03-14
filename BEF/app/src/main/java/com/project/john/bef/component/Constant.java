@@ -50,4 +50,5 @@ public class Constant {
     public static final String LOGIN_ERROR_MSG = "It failed to confirm your state of login.";
     public static final String EMAIL_ERROR_MSG = "It failed to confirm your email.";
     public static final String PW_ERROR_MSG = "It failed to match your email and password.";
+    public static final String SHAKE_ERROR_MSG = "It detected to shake device within 3seconds.";
 }
