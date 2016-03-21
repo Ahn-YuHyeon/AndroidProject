@@ -256,13 +256,13 @@ public class Main extends AppCompatActivity
 
                 mSpeed = Math.abs(mX + mY + mZ - mLastX - mLastY - mLastZ) / gabOfTime * 10000;
 
-                if (mSpeed > sSHAKE_THRESHOLD) {
+                if ((mSpeed > sSHAKE_THRESHOLD) && (Login.sLoginState == true)) {
                     if ((sShakeModeTime == 0) ||
                         (SystemClock.uptimeMillis( ) - sShakeModeTime > 3000)) {
                         sTtsHelper.startSpeak("검색어를 말씀하세요!");
                         SystemClock.sleep(3000);
                         sTtsHelper.startSpeak("오케이구글");
-                        sShakeModeTime = SystemClock.uptimeMillis( );
+                                                sShakeModeTime = SystemClock.uptimeMillis( );
                     } else {
                         Logger.record(LogType.VERBOSE, Constant.SHAKE_ERROR_MSG);
                     }
