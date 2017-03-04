@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/google"
+        android:title="구글실행"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/shake"
+        android:title="학습시작"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/add"
+        android:title="항목추가"
+        app:showAsAction="always"/>
+</menu>
